@@ -1,5 +1,38 @@
 .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
   width: 100%;
   min-height: 70px;
   background-color: rgb(91, 8, 146);
+}
+
+.logo {
+  color: #fff;
+  font-size: 2em;
+  font-weight: 500;
+}
+
+.nav {
+  &_list {
+    display: flex;
+    column-gap: 2rem;
+    list-style: none;
+  }
+
+  &_item {
+    display: flex;
+  }
+
+  &_link {
+    color: #fff;
+
+    &__active {
+      text-decoration: underline;
+      text-decoration-thickness: 1.5px;
+      text-underline-offset: 2px;
+    }
+  }
+
 }
