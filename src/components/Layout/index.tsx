@@ -10,7 +10,9 @@ function Layout() {
     <>
       <TitlePageContext.Provider value={{ titlePage, setTitlePage }}>
         <Header />
-        <Outlet />
+        <main className="main">
+          <Outlet />
+        </main>
       </TitlePageContext.Provider>
     </>
   );
