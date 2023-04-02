@@ -1,0 +1,14 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  min-height: 50px;
+  margin: 50px auto 0px;
+  padding: 20px 3.6% 20px;
+  border-top: 1px solid rgb(91, 8, 146);
+
+  &_logo {
+    width: 70px;
+  }
+}

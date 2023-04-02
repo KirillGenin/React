@@ -34,6 +34,9 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 h1 {
@@ -78,6 +81,7 @@ button:focus-visible {
 }
 
 .main {
+  flex-grow: 1;
   padding: 30px 15px 0;
   display: flex;
   flex-direction: column;
