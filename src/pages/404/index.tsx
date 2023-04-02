@@ -5,7 +5,7 @@ function PageNotFound() {
   const { setTitlePage } = useContext(TitlePageContext);
 
   useEffect(() => {
-    setTitlePage('404: Page Not Found');
+    setTitlePage('404 Error');
   });
 
   return (
