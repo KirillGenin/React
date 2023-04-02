@@ -1,5 +1,6 @@
 import { useEffect, useContext } from 'react';
 import TitlePageContext from '../../hooks/Context';
+import Search from '../../components/Search';
 
 function HomePage() {
   const { setTitlePage } = useContext(TitlePageContext);
@@ -10,7 +11,7 @@ function HomePage() {
 
   return (
     <>
-      <p>Home</p>
+      <Search />
     </>
   );
 }
