@@ -9,12 +9,15 @@ function Header() {
   return (
     <>
       <header className={styles.header}>
+        <span className={styles.logo}>{titlePage}</span>
         <nav>
           <ul className={styles.nav_list}>
             <li>
               <NavLink
                 to="/"
-                className={({ isActive }) => (isActive ? styles.nav_link__active : styles.nav_link)}
+                className={({ isActive }) =>
+                  isActive ? `${styles.nav_link} ${styles.nav_link__active}` : styles.nav_link
+                }
               >
                 Home
               </NavLink>
@@ -22,7 +25,9 @@ function Header() {
             <li>
               <NavLink
                 to="/about"
-                className={({ isActive }) => (isActive ? styles.nav_link__active : styles.nav_link)}
+                className={({ isActive }) =>
+                  isActive ? `${styles.nav_link} ${styles.nav_link__active}` : styles.nav_link
+                }
               >
                 About Us
               </NavLink>
@@ -30,14 +35,15 @@ function Header() {
             <li>
               <NavLink
                 to="/form"
-                className={({ isActive }) => (isActive ? styles.nav_link__active : styles.nav_link)}
+                className={({ isActive }) =>
+                  isActive ? `${styles.nav_link} ${styles.nav_link__active}` : styles.nav_link
+                }
               >
                 Form
               </NavLink>
             </li>
           </ul>
         </nav>
-        <p>{titlePage}</p>
       </header>
     </>
   );
