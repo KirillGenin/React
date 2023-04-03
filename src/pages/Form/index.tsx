@@ -1,5 +1,6 @@
 import { useEffect, useContext } from 'react';
 import TitlePageContext from '../../hooks/Context';
+import Form from '../../components/Form';
 
 function FormPage() {
   const { setTitlePage } = useContext(TitlePageContext);
@@ -10,7 +11,7 @@ function FormPage() {
 
   return (
     <>
-      <p>Form</p>
+      <Form />
     </>
   );
 }
