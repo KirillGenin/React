@@ -15,3 +15,12 @@ export type Product = {
 };
 
 export type Products = Product[];
+
+export type FormValues = {
+  firstName: string;
+  deliveryDate: string;
+  product: string;
+  options: string[];
+  payment: string;
+  image: FileList;
+};
