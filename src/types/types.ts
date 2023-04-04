@@ -22,5 +22,14 @@ export type FormValues = {
   product: string;
   options: string[];
   payment: string;
-  image: FileList;
+  image: FileList | string;
+};
+
+export type PropsForm = {
+  cards: FormValues[];
+  setCards: React.Dispatch<React.SetStateAction<FormValues[]>>;
+};
+
+export type PropsCardForm = {
+  card: FormValues;
 };

@@ -1,10 +1,11 @@
 import styles from './index.module.scss';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import getMinAndMaxDeliveryDates from '../../utils/utils';
-import { FormValues } from '../../types/types';
+import { FormValues, PropsForm } from '../../types/types';
 
-function Form() {
+function Form(props: PropsForm) {
   const { currentDate, maxDeliveryDate } = getMinAndMaxDeliveryDates();
+
   const {
     register,
     handleSubmit,
@@ -19,10 +20,24 @@ function Form() {
       payment: '',
     },
   });
+
+  const { cards, setCards } = props;
+
   const onSubmit: SubmitHandler<FormValues> = (data) => {
-    console.log(data.image[0]);
-    // console.log(new Date(data.deliveryDate).toISOString().slice(0, 10));
-    reset();
+    const file = data.image[0];
+    const reader = new FileReader();
+    if (file instanceof File) {
+      reader.readAsDataURL(file);
+
+      reader.onload = () => {
+        const image = reader.result;
+        if (typeof image === 'string') {
+          alert(`${data.firstName}, your order has been accepted!`);
+          setCards([...cards, { ...data, image: image }]);
+          reset();
+        }
+      };
+    }
   };
 
   return (
@@ -149,13 +164,23 @@ function Form() {
             {...register('image', {
               required: 'Required field',
               validate: {
-                size: (fileList) =>
-                  fileList[0].size < 2097152 ||
-                  'The maximum file size for uploading is no more than 2 MB',
-                type: (fileList) =>
-                  ['image/png', 'image/svg+xml', 'image/webp', 'image/jpeg'].includes(
-                    fileList[0].type
-                  ) || 'Only images!',
+                size: (fileList) => {
+                  if (fileList instanceof FileList) {
+                    return (
+                      fileList[0].size < 2097152 ||
+                      'The maximum file size for uploading is no more than 2 MB'
+                    );
+                  }
+                },
+                type: (fileList) => {
+                  if (fileList instanceof FileList) {
+                    return (
+                      ['image/png', 'image/svg+xml', 'image/webp', 'image/jpeg'].includes(
+                        fileList[0].type
+                      ) || 'Only images!'
+                    );
+                  }
+                },
               },
             })}
           />
