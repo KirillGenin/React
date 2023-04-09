@@ -1,0 +1,35 @@
+export interface ITitlePageContext {
+  titlePage: string;
+  setTitlePage: React.Dispatch<React.SetStateAction<string>>;
+}
+
+export type Product = {
+  id?: number;
+  title: string;
+  brand: string;
+  type: string;
+  membrane: number;
+  description: string;
+  price: number;
+  image: string;
+};
+
+export type Products = Product[];
+
+export type FormValues = {
+  firstName: string;
+  deliveryDate: string;
+  product: string;
+  options: string[];
+  payment: string;
+  image: FileList | string;
+};
+
+export type PropsForm = {
+  cards: FormValues[];
+  setCards: React.Dispatch<React.SetStateAction<FormValues[]>>;
+};
+
+export type PropsCardForm = {
+  card: FormValues;
+};
