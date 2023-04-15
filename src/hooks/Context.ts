@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import ITitlePageContext from '../types/types';
+import { ITitlePageContext } from '../types/types';
 
 const TitlePageContext = createContext<ITitlePageContext>({} as ITitlePageContext);
 
