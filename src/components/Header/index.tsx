@@ -9,7 +9,9 @@ function Header() {
   return (
     <>
       <header className={styles.header}>
-        <span className={styles.logo}>{titlePage}</span>
+        <span className={styles.logo} data-testid="logo">
+          {titlePage}
+        </span>
         <nav>
           <ul className={styles.nav_list}>
             <li>
