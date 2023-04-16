@@ -33,3 +33,16 @@ export type PropsForm = {
 export type PropsCardForm = {
   card: FormValues;
 };
+
+export interface ResponseData {
+  id: number;
+  name: string;
+  status: string;
+  species: string;
+  type: string;
+  gender: string;
+  location: {
+    name: string;
+  };
+  image: string;
+}

@@ -1,26 +1,27 @@
 import styles from './index.module.scss';
 import { useRef, useEffect, useState, SetStateAction } from 'react';
+import { useAppDispatch } from '../../hooks';
+import { useAppSelector } from '../../hooks';
+import { setQuery } from '../../store/slices/searchSlice';
 
 function Search() {
-  const [query, setQuery] = useState(localStorage.getItem('query') || '');
+  const dispatch = useAppDispatch();
+  const [query, setInputQuery] = useState(useAppSelector((state) => state.search.query));
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
+    setInputQuery(query);
     const input = inputRef.current;
-    const localQuery = localStorage.getItem('query');
-    if (localQuery !== null) {
-      setQuery(localQuery);
-    }
 
     return () => {
       if (input) {
-        localStorage.setItem('query', input.value);
+        dispatch(setQuery(input.value));
       }
     };
   }, []);
 
   const changeQuery = (event: { target: { value: SetStateAction<string> } }) => {
-    setQuery(event.target.value);
+    setInputQuery(event.target.value);
   };
 
   return (
