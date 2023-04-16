@@ -1,9 +1,13 @@
 import styles from './index.module.scss';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import getMinAndMaxDeliveryDates from '../../utils/utils';
-import { FormValues, PropsForm } from '../../types/types';
+import { FormValues } from '../../types/types';
+import { useAppDispatch } from '../../hooks';
+import { addCard } from '../../store/slices/formSlice';
 
-function Form(props: PropsForm) {
+function Form() {
+  const dispatch = useAppDispatch();
+
   const { currentDate, maxDeliveryDate } = getMinAndMaxDeliveryDates();
 
   const {
@@ -21,8 +25,6 @@ function Form(props: PropsForm) {
     },
   });
 
-  const { cards, setCards } = props;
-
   const onSubmit: SubmitHandler<FormValues> = (data) => {
     const file = data.image[0];
     const reader = new FileReader();
@@ -33,7 +35,7 @@ function Form(props: PropsForm) {
         const image = reader.result;
         if (typeof image === 'string') {
           alert(`${data.firstName}, your order has been accepted!`);
-          setCards([...cards, { ...data, image: image }]);
+          dispatch(addCard({ ...data, image: image }));
           reset();
         }
       };
