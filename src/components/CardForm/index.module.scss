@@ -1,0 +1,40 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  row-gap: 5px;
+  padding: 5px;
+  max-width: 350px;
+  border: 1px solid rgb(91, 8, 146);
+  overflow: hidden;
+
+  &:hover {
+    box-shadow: 0 0 2px #333;
+  }
+
+  &_image {
+    aspect-ratio: 2/1;
+    width: 100%;
+    object-fit: contain;
+    transition: all 0.2s ease-in;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.subtitle {
+  font-weight: 500;
+  color: rgb(91, 8, 146);
+}

@@ -1,0 +1,25 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  height: 35px;
+  padding: 5px;
+  border: 1px solid rgb(91, 8, 146);
+  border-radius: 5px;
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
+  background: url(../../assets/search.svg) no-repeat center/cover;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  padding: 0 5px;
+  max-width: 300px;
+  font-size: 1.2rem;
+  outline: none;
+  border: none;
+}
