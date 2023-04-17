@@ -1,12 +1,15 @@
 import { useEffect, useContext } from 'react';
 import TitlePageContext from '../../hooks/Context';
 import Search from '../../components/Search';
-import Card from '../../components/Card';
-import goods from '../../data/data';
-import styles from './index.module.scss';
+import CardList from '../../components/CardList';
+import Preload from '../../components/Preload';
+import { useAppSelector } from '../../hooks';
+import ModalCard from '../../components/ModalCard';
 
 function HomePage() {
   const { setTitlePage } = useContext(TitlePageContext);
+  const isLoading = useAppSelector((state) => state.search.loading);
+  const isHeroLoading = useAppSelector((state) => state.search.heroLoading);
 
   useEffect(() => {
     setTitlePage('Home');
@@ -15,20 +18,8 @@ function HomePage() {
   return (
     <>
       <Search />
-      <div className={styles.wrapper}>
-        {goods.map((product) => (
-          <Card
-            title={product.title}
-            brand={product.brand}
-            type={product.type}
-            membrane={product.membrane}
-            description={product.description}
-            price={product.price}
-            image={product.image}
-            key={product.id}
-          />
-        ))}
-      </div>
+      {isLoading ? <Preload /> : <CardList />}
+      {isHeroLoading && <ModalCard />}
     </>
   );
 }

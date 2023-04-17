@@ -1,38 +1,33 @@
 import styles from './index.module.scss';
-import { useRef, useEffect, useState, SetStateAction } from 'react';
+import { useState } from 'react';
 import { useAppDispatch } from '../../hooks';
 import { useAppSelector } from '../../hooks';
 import { setQuery } from '../../store/slices/searchSlice';
+import { fetchData } from '../../store/slices/searchSlice';
 
 function Search() {
   const dispatch = useAppDispatch();
   const [query, setInputQuery] = useState(useAppSelector((state) => state.search.query));
-  const inputRef = useRef<HTMLInputElement>(null);
 
-  useEffect(() => {
-    setInputQuery(query);
-    const input = inputRef.current;
+  const changeQuery = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const input = event.currentTarget.value;
+    dispatch(setQuery(input));
+    setInputQuery(input);
+  };
 
-    return () => {
-      if (input) {
-        dispatch(setQuery(input.value));
-      }
-    };
-  }, []);
-
-  const changeQuery = (event: { target: { value: SetStateAction<string> } }) => {
-    setInputQuery(event.target.value);
+  const handleClick = () => {
+    if (query.trim()) dispatch(fetchData(query.trim()));
   };
 
   return (
     <>
       <div className={styles.wrapper}>
-        <span className={styles.icon}></span>
+        <span className={styles.icon} onClick={handleClick}></span>
         <input
           type="text"
           className={styles.search}
-          ref={inputRef}
           value={query}
+          placeholder="For example: Rick, Morty.."
           onChange={changeQuery}
         />
       </div>

@@ -1,0 +1,57 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  background-color: rgba(#000, 0.7);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  row-gap: 10px;
+  padding: 15px;
+  max-width: 500px;
+  color: rgb(91, 8, 146);
+  font-size: 1rem;
+  border: 1px solid rgb(91, 8, 146);
+  background-color: #fff;
+
+  &:hover {
+    box-shadow: 0 0 2px #333;
+  }
+
+  &_image {
+    // aspect-ratio: 2/1;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  &_close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+    width: 60px;
+    height: 60px;
+    background: center/cover no-repeat url('../../assets/icons-close.png');
+    cursor: pointer;
+  }
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.bold {
+  font-weight: 500;
+}

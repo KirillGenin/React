@@ -1,28 +1,21 @@
-import { Product } from '../../types/types';
 import styles from './index.module.scss';
+import { IData } from '../../types/types';
+import { useAppDispatch } from '../../hooks';
+import { fetchHero } from '../../store/slices/searchSlice';
 
-function Card(props: Product) {
+function Card(props: IData) {
+  const dispatch = useAppDispatch();
+  const { image, name, id } = props;
+
+  const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
+    const id = Number(event.currentTarget.dataset.id);
+    dispatch(fetchHero(id));
+  };
+
   return (
-    <div className={styles.card}>
-      <p>
-        <img className={styles.card_image} src={props.image} alt={props.title} />
-      </p>
-      <p className={styles.flex}>
-        <b>Name:</b> {props.title}
-      </p>
-      <p className={styles.flex}>
-        <b>Brand:</b> {props.brand}
-      </p>
-      <p className={styles.flex}>
-        <b>Type:</b> {props.type}
-      </p>
-      <p className={styles.flex}>
-        <b>Membrane diameter:</b> {props.membrane}
-      </p>
-      <p className={styles.italic}>{props.description}</p>
-      <p className={styles.flex}>
-        <b>Price:</b> {props.price} $
-      </p>
+    <div className={styles.card} data-id={id} onClick={handleClick}>
+      <img className={styles.card_image} src={image} alt={name} />
+      <span className={styles.card_title}>{name}</span>
     </div>
   );
 }

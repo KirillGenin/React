@@ -34,6 +34,12 @@ export type PropsCardForm = {
   card: FormValues;
 };
 
+export interface IData {
+  id: number;
+  name: string;
+  image: string;
+}
+
 export interface ResponseData {
   id: number;
   name: string;
@@ -44,5 +50,17 @@ export interface ResponseData {
   location: {
     name: string;
   };
+  image: string;
+  episode: string[];
+}
+
+export interface IHero {
+  id: number;
+  name: string;
+  status: string;
+  species: string;
+  type: string;
+  gender: string;
+  location: string;
   image: string;
 }
