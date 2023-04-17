@@ -1,5 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from './store';
 import App from './App';
 import Pages from './types/types-test';
 
@@ -7,7 +9,9 @@ describe('App test', () => {
   it('should render home page logo', () => {
     render(
       <MemoryRouter initialEntries={[Pages.HomePage]}>
-        <App />
+        <Provider store={store}>
+          <App />
+        </Provider>
       </MemoryRouter>
     );
     expect(screen.getByTestId('logo')).toHaveTextContent(/home/i);
