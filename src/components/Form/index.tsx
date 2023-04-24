@@ -4,6 +4,7 @@ import getMinAndMaxDeliveryDates from '../../utils/utils';
 import { FormValues } from '../../types/types';
 import { useAppDispatch } from '../../hooks';
 import { addCard } from '../../store/slices/formSlice';
+import React from 'react';
 
 function Form() {
   const dispatch = useAppDispatch();

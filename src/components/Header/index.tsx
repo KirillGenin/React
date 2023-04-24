@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom';
 import { useContext } from 'react';
 import styles from './index.module.scss';
 import TitlePageContext from '../../hooks/Context';
+import React from 'react';
 
 function Header() {
   const { titlePage } = useContext(TitlePageContext);

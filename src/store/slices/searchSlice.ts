@@ -38,7 +38,7 @@ export const fetchHero = createAsyncThunk<ResponseData, number, { rejectValue: s
   }
 );
 
-interface SearchState {
+export interface SearchState {
   query: string;
   data: IData[];
   loading: boolean;

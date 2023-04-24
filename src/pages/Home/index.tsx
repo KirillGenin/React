@@ -5,6 +5,7 @@ import CardList from '../../components/CardList';
 import Preload from '../../components/Preload';
 import { useAppSelector } from '../../hooks';
 import ModalCard from '../../components/ModalCard';
+import React from 'react';
 
 function HomePage() {
   const { setTitlePage } = useContext(TitlePageContext);

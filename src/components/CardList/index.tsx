@@ -1,6 +1,7 @@
 import styles from './index.module.scss';
 import Card from '../../components/Card';
 import { useAppSelector } from '../../hooks';
+import React from 'react';
 
 function CardList() {
   const { data: heroes, error } = useAppSelector((state) => state.search);

@@ -1,5 +1,6 @@
 import { useEffect, useContext } from 'react';
 import TitlePageContext from '../../hooks/Context';
+import React from 'react';
 
 function AboutUsPage() {
   const { setTitlePage } = useContext(TitlePageContext);

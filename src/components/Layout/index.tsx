@@ -3,6 +3,7 @@ import Header from '../Header';
 import { useState } from 'react';
 import TitlePageContext from '../../hooks/Context';
 import Footer from '../Footer';
+import React from 'react';
 
 function Layout() {
   const [titlePage, setTitlePage] = useState('');

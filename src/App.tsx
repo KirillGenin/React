@@ -5,6 +5,7 @@ import AboutUsPage from './pages/AboutUs';
 import PageNotFound from './pages/404';
 import FormPage from './pages/Form';
 import Layout from './components/Layout';
+import React from 'react';
 
 function App() {
   return (

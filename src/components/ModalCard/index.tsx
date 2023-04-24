@@ -1,6 +1,7 @@
 import styles from './index.module.scss';
 import { useAppSelector, useAppDispatch } from '../../hooks';
 import { closeModal } from '../../store/slices/searchSlice';
+import React from 'react';
 
 function ModalCard() {
   const { name, species, status, type, gender, location, image } = useAppSelector(

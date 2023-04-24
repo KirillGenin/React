@@ -1,5 +1,6 @@
 import { useEffect, useContext } from 'react';
 import TitlePageContext from '../../hooks/Context';
+import React from 'react';
 
 function PageNotFound() {
   const { setTitlePage } = useContext(TitlePageContext);

@@ -2,6 +2,7 @@ import styles from './index.module.scss';
 import { IData } from '../../types/types';
 import { useAppDispatch } from '../../hooks';
 import { fetchHero } from '../../store/slices/searchSlice';
+import React from 'react';
 
 function Card(props: IData) {
   const dispatch = useAppDispatch();

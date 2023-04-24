@@ -1,5 +1,6 @@
 import { PropsCardForm } from '../../types/types';
 import styles from './index.module.scss';
+import React from 'react';
 
 function CardForm(props: PropsCardForm) {
   const { firstName, deliveryDate, product, options, payment, image } = props.card;

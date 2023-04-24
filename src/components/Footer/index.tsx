@@ -1,5 +1,6 @@
 import styles from './index.module.scss';
 import logo from '../../assets/rsschool.svg';
+import React from 'react';
 
 function Footer() {
   return (

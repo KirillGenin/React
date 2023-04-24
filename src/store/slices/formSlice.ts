@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { FormValues } from '../../types/types';
 import type { PayloadAction } from '@reduxjs/toolkit';
 
-interface CardsState {
+export interface CardsState {
   cards: FormValues[];
 }
 
