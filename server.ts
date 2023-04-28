@@ -28,7 +28,6 @@ async function createAppServer() {
     const parts = html.split('<!--ssr-outlet-->');
 
     try {
-
       res.write(parts[0]);
 
       const { renderApp } = await vite.ssrLoadModule('./src/entry-server.tsx');

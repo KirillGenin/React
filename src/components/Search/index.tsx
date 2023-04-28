@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useAppDispatch } from '../../hooks';
 import { useAppSelector } from '../../hooks';
 import { setQuery } from '../../store/slices/searchSlice';
-import { fetchData } from '../../store/slices/searchSlice';
+import { fetchData } from '../../api';
 import React from 'react';
 
 function Search() {
