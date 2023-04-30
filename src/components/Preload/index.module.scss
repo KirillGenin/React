@@ -1,0 +1,12 @@
+.wrapper {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.preload {
+  width: 100px;
+  height: 100px;
+  background: center/cover no-repeat url('../../assets/spinner.gif');
+}
